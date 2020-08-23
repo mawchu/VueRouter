@@ -1,11 +1,12 @@
 <template>
   <div class="hello">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    <div class="card mx-auto" style="width: 18rem;">
+      <ul class="list-group list-group-horizontal w-100">
+        <router-link class="list-group-item w-100 bg-light" to="/page/">Card1</router-link>
+        <router-link class="list-group-item w-100 bg-light" to="/page/child2">Card2</router-link>
+        <router-link class="list-group-item w-100 bg-light" to="/page/child3">Card3</router-link>
+      </ul>
+      <router-view></router-view>
     </div>
   </div>
 </template>
