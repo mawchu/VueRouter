@@ -5,6 +5,8 @@ import VueRouter from 'vue-router';
 import Home from '@/components/HelloWorld';
 import Page from '@/components/pages/page';
 // 巢狀分頁元件
+import Menu from '@/components/pages/menu';
+
 import Child1 from '@/components/pages/child1';
 import Child2 from '@/components/pages/child2';
 import Child3 from '@/components/pages/child3';
@@ -20,9 +22,13 @@ export default new VueRouter({
             component: Home,//對應的元件
         },
         {
-            // name:'分頁', //vue渲染建議刪除此名稱 不然會覆蓋掉巢狀分頁的'卡片1'
+            // name:'分頁', //vue渲染建議刪除此名稱直接使用要載入的分頁名稱 不然會被巢狀分頁的'卡片1'覆蓋掉
             path:'/page',
-            component: Page,
+            // component: Page,
+            components: {
+                default: Page,
+                menu: Menu,
+            },
             children:[
                 {
                     name:'卡片1',//元件呈現的名稱
@@ -36,7 +42,7 @@ export default new VueRouter({
                 },
                 {
                     name:'卡片3',//元件呈現的名稱
-                    path:'child/:id',//對應的虛擬路徑
+                    path:'child3',//對應的虛擬路徑
                     component: Child3,//對應的元件
                 },
             ]

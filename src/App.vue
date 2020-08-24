@@ -9,7 +9,6 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <!-- 動態路由 -->
-            <!-- <router-link class="nav-link" :to="{name:'首頁'}">Home</router-link> -->
             <router-link class="nav-link" :to="{name:'首頁'}">Home</router-link>
 
           </li>
@@ -21,8 +20,12 @@
       </div>
     </nav>
     <img src="./assets/logo.png">
-    <!--<HelloWorld/>-->
-    <router-view></router-view>
+    <router-view name="menu"></router-view>
+    <div class="container">
+      <!--<HelloWorld/>-->
+      <router-view></router-view>
+    </div>
+
   </div>
 </template>
 <script>

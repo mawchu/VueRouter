@@ -22,8 +22,12 @@ export default {
     const id = this.$route.params.id;
     const vm = this;
     //後方的固定參數可以存取固定的api資料
-    
-    this.$http.get('https://randomuser.me/api/?seed='+id)
+    //  this.$http.get('https://randomuser.me/api/?seed='+id)
+    //   .then((response)=>{
+    //     console.log(response.data.results[0].picture.large)
+    //     vm.pictureUrl = response.data.results[0].picture.large;
+    //   })
+    this.$http.get('https://randomuser.me/api/')
       .then((response)=>{
         console.log(response.data.results[0].picture.large)
         vm.pictureUrl = response.data.results[0].picture.large;
