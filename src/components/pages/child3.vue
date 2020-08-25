@@ -1,9 +1,11 @@
 <template>
   <div>
-    <img :src="pictureUrl" class="card-img-top" alt="">
+    <img v-if="info.picture" :src="info.picture.large" class="card-img-top" alt="">
     <div class="card-body">
         <h5 class="card-title">Card3</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <span class="card-text text-left d-flex">Name : {{ info.name.first }} {{ info.name.last }}</span>
+        <span class="card-text text-left d-flex">Email : {{ info.email }}</span>
+        <span class="card-text text-left d-flex">Mobile : {{ info.phone }}</span>
         <a href="#" class="btn btn-primary mt-4">Go somewhere</a>
     </div>
   </div>
@@ -14,12 +16,13 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      pictureUrl:''
+      // pictureUrl:'',
+      info:Object
     }
   },
   created(){
     // console.log(this.$route.params.id)
-    const id = this.$route.params.id;
+    // const id = this.$route.params.id;
     const vm = this;
     //後方的固定參數可以存取固定的api資料
     //  this.$http.get('https://randomuser.me/api/?seed='+id)
@@ -29,8 +32,9 @@ export default {
     //   })
     this.$http.get('https://randomuser.me/api/')
       .then((response)=>{
-        console.log(response.data.results[0].picture.large)
+        console.log(response.data.results[0])
         vm.pictureUrl = response.data.results[0].picture.large;
+        vm.info = response.data.results[0];
       })
   }
 }

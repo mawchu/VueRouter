@@ -15,6 +15,9 @@ import Child3 from '@/components/pages/child3';
 Vue.use(VueRouter);
 
 export default new VueRouter({
+    // mode:'history',
+    linkActiveClass:'router-active',
+    linkExactActiveClass:'exact-active',
     routes:[//路由資料的陣列
         {
             name:'首頁',//元件呈現的名稱
@@ -27,7 +30,7 @@ export default new VueRouter({
             // component: Page,
             components: {
                 default: Page,
-                menu: Menu,
+                menu: Menu,//註冊在page下才看的到
             },
             children:[
                 {

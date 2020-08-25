@@ -20,6 +20,7 @@
       </div>
     </nav>
     <img src="./assets/logo.png">
+    <!-- index.js 註冊在page分頁下方才會看到 menu元件 -->
     <router-view name="menu"></router-view>
     <div class="container">
       <!--<HelloWorld/>-->
